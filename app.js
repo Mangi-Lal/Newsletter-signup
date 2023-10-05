@@ -23,19 +23,26 @@ app.post("/", function(req,res){
     const lname = req.body.lName;
     const email = req.body.email;
     // console.log(fname,lname,email);
+    // creating javascript object and taking parameters according to mentioned on Mailchimp`s website...
     const data = {
         members:[
             {
                 email_address: email,
                 status: "subscribed",
                 merge_fields: {
-                    FNAME: fname,
-                    LNAME: lname
+                    FNAME: fname, // same as on the Mailchimp`s API website
+                    LNAME: lname 
                 }
             }
         ]
     };
-    const jsonobject = JSON.stringify(data);
+    const jsonobject = JSON.stringify(data); // The JSON.stringify() static method converts a JavaScript value to a JSON string.
+
+
+    const url = ""
+    https.request(url, options, function(response){
+
+    })
 
     
 
@@ -51,7 +58,7 @@ app.listen(port, function(){
 })
 
 // API key
-// 407eda6ecb4f4c6e4872f7145bef1cc9-us11
+// fb524b5c0c606b68a3a7377937193a88-us11
 
 // unique ID
 // 39403659ed
