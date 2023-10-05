@@ -36,13 +36,30 @@ app.post("/", function(req,res){
             }
         ]
     };
-    const jsonobject = JSON.stringify(data); // The JSON.stringify() static method converts a JavaScript value to a JSON string.
+    const jsonObject = JSON.stringify(data); // The JSON.stringify() static method converts a JavaScript value to a JSON string.
 
 
-    const url = ""
-    https.request(url, options, function(response){
+    const url = "https://us11.api.mailchimp.com/3.0/lists/39403659ed";
+    const options = {
+        method: "POST",
+        auth: "mangi:fb524b5c0c606b68a3a7377937193a88-us11"
+    }
 
+     
+    const request = https.request(url, options, function(response){
+        
+        if(response.statusCode === 200){
+            res.send("Successfully subscribed!");
+        } else {
+            res.send("There is an error!!!");
+        }
+        response.on("data", function(data){
+            console.log(JSON.parse(data));
+        })
     })
+
+    request.write(jsonObject);
+    request.end();
 
     
 
