@@ -4,12 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success</title>
+    <style>
+        .butt{
+            background-color: rgb(229, 255, 0);
+            border-radius: 8%;
+            width: auto;
+            height: 30px;
+            border-color: rgb(229, 255, 0);
+            cursor: pointer;
+        }
+        .container{
+            /* margin-left: 100px; */
+            height: 200px;
+            
+        }
+        .block{
+            margin-left: 100px;
+            /* background-color: rgb(208, 211, 210); */
+        }
+    </style>
 </head>
 <body>
     <div class="block">
         <div class="container">
             <h1>Oops!!!</h1>
-            <p>There was a problem signing you up. Please try again...</p>
+            <p>There was a problem signing you up. Please try again... 🤔</p>
+            <!-- When we press Try again button we are going to trigger a post request to
+            the failure route and that is gonna called by our server our app.post() and its gonna 
+            redirect to the home route which trigger the app.get("/") and it send to the signup.html page-->
+            <form action="/failure" method="post">
+                <button class="butt" type="submit" name="button">Try Again</button>
+            </form>
         </div>
     </div>
 </body>

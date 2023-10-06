@@ -49,9 +49,9 @@ app.post("/", function(req,res){
     const request = https.request(url, options, function(response){
         
         if(response.statusCode === 200){
-            res.send("Successfully subscribed!");
+            res.sendFile(__dirname+"/success.html");
         } else {
-            res.send("There is an error!!!");
+            res.sendFile(__dirname+"/failure.html");
         }
         response.on("data", function(data){
             console.log(JSON.parse(data));
@@ -67,10 +67,14 @@ app.post("/", function(req,res){
 
 
 
-const port = 3000;
+const port = 3000; // 3000 is a local port for heroku we use different port...
 
-
-app.listen(port, function(){
+app.post("/failure", function(req,res){
+    res.redirect("/");
+})
+// process.env.PORT is a dynamic port. the heroku will define on the go. here process object is defined by heroku.
+// (process.env.PORT || port) using this we can listen on both heroku and local port.
+app.listen(process.env.PORT || port, function(){
     console.log("App is started running at port: "+port);
 })
 
