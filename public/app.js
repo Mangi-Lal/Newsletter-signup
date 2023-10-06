@@ -42,7 +42,7 @@ app.post("/", function(req,res){
     const url = "https://us11.api.mailchimp.com/3.0/lists/39403659ed";
     const options = {
         method: "POST",
-        auth: "mangi:fb524b5c0c606b68a3a7377937193a88-us11"
+        auth: "mangi:"
     }
 
      
@@ -78,8 +78,7 @@ app.listen(process.env.PORT || port, function(){
     console.log("App is started running at port: "+port);
 })
 
-// API key
-// fb524b5c0c606b68a3a7377937193a88-us11
+
 
 // unique ID
 // 39403659ed
