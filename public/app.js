@@ -14,7 +14,7 @@ app.use(bodypraser.urlencoded({extended:true}));
 
 app.get("/",function(req,res){
     // console.log("app started");
-    res.sendFile(__dirname+"/signup.html");
+    res.sendFile(__dirname+"/index.html");
 })
 
 // "/" <- this is called route
